@@ -11,6 +11,6 @@ return array(
     'shop_settings' => true,
     'img'=>'img/brandlogos.png',
     'handlers'    => array(
-    	
+        'frontend_head' => 'frontendHead',
     ),
 );

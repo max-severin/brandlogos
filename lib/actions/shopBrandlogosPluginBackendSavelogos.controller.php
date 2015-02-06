@@ -18,7 +18,7 @@ class shopBrandlogosPluginBackendSavelogosController extends waJsonController {
             $brand = array( 'id' => $id );
             $brand['logo'] = $logo_array[$id];
             $brand['position'] = $position_array[$id];
-
+            
             $brand_logos_model->save($brand);
         }
         

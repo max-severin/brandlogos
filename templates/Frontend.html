@@ -1,0 +1,5 @@
+{if $brands}
+	{foreach $brands as $id => $brand}
+		<img class="brand-logo {$brand.class}" src="/wa-data/public/shop/brandlogos/{$brand.logo}" alt="{$brand.name}" title="{$brand.name}" />
+	{/foreach}
+{/if}
