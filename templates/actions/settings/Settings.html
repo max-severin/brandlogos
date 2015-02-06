@@ -1,0 +1,131 @@
+<style>
+    {include file="../../../css/brandlogos_backend_settings.css" inline}
+</style>
+
+<h1>Логотипы брендов</h1>
+<div class="set-wrap">
+    <div class="fields form">
+        <form action="?module=plugins&id=brandlogos&action=save" method="post" id="plugins-settings-form">
+            {$wa->csrf()}
+
+            <div class="field">
+                <div class="name">
+                    Статус плагина
+                </div>
+                <div class="value">
+                    <select name="shop_brandlogos[status]">
+	                    <option {if isset($settings.status) &&  $settings.status == 0} selected="selected"{/if} value="0">Выключен</option>
+	                    <option {if isset($settings.status) && $settings.status == 1} selected="selected"{/if} value="1">Включен</option>
+                    </select>
+                </div>
+            </div>     
+                   
+	        <div class="field">
+	            <div class="name">
+	                Ширина изображения
+	            </div>
+	            <div class="value">
+	                <input type="text" name="shop_brandlogos[width]" value="{if isset($settings.width)}{$settings.width}{/if}" />
+	            </div>
+	        </div>
+
+	        <div class="field">
+	            <div class="name">
+	                Высота изображения
+	            </div>
+	            <div class="value">
+	                <input type="text" name="shop_brandlogos[height]" value="{if isset($settings.height)}{$settings.height}{/if}" />
+	            </div>
+	        </div>
+
+            <div class="field">
+                <div class="value submit">
+                    <input type="submit" class="button green" value="Сохранить">
+                    <span id="plugins-settings-form-status" style="display:none">
+                        <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="set-wrap" {if !isset($settings.status) || $settings.status != 1}style="display: none;"{/if}>
+    <div class="fields form">
+        <form action="?plugin=brandlogos&action=savelogos" method="post" id="save-brand-logos-form" enctype="multipart/form-data">
+            {$wa->csrf()}
+
+            <div class="field">
+                <div class="name">
+                    <b>Бренды</b>
+                    <p class="hint">Добавьте логотипы к брендам, а также их местоположения относительно изображений товара</p>
+                </div>
+                <div class="value">
+                    <ul class="menu-v brands">
+                        {foreach $brands as $id => $brand}
+                        <li>
+                            <input type="hidden" name="id[]" value="{$brand.id}"/>
+                            <span class="b-name">{$brand.name}</span>
+
+                            <img src="/wa-data/public/shop/brandlogos/{$brand.logo}" alt="Логотип {$brand.name}" title="Логотип {$brand.name}" />
+
+                            <b>Изображение</b><input type="file" name="logo[{$brand.id}]" value=""/>
+                            <br />
+                            <br />
+                            <b>Местоположение</b>
+			                <select name="position[{$brand.id}]">
+			                    <option {if isset($brand.position) && $brand.position == "TR"} selected="selected"{/if} value="TR">Верх-право</option>
+			                    <option {if isset($brand.position) && $brand.position == "TL"} selected="selected"{/if} value="TL">Верх-лево</option>
+			                    <option {if isset($brand.position) && $brand.position == "BR"} selected="selected"{/if} value="BR">Низ-право</option>
+			                    <option {if isset($brand.position) && $brand.position == "BR"} selected="selected"{/if} value="BL">Низ-лево</option>
+			                </select>
+			                <br />
+                        </li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="field res">
+                <div class="value submit">
+                    <input type="submit" class="button green" value="Сохранить">
+                    <span id="plugins-settings-form-status" style="display:none">
+                        <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function() {
+        $("#plugins-settings-form").submit(function() {
+            var f = $(this);
+            var st = f.find('select[name="shop_brandlogos[status]"] option:selected').val();
+            
+            $.post(f.attr('action'), f.serialize(), function(response) {
+                if (response.status == 'ok') {
+                    f.find('#wa-design-button').removeClass('red').addClass('green');
+                    f.find("#wa-editor-status-fail").hide()
+                    f.find("#wa-editor-status-ok span").html(response.data.message);
+                    f.find("#wa-editor-status-ok").fadeIn('slow', function() {
+                        $(this).fadeOut(1000);
+                    });
+                    if( st == 1 ) {
+                        $('#save-brand-logos-form').closest('.set-wrap').show();
+                    } else {
+                        $('#save-brand-logos-form').closest('.set-wrap').hide();
+                    }
+                } else {
+                    f.find('#wa-design-button').removeClass('green').addClass('red');
+                    f.find("#wa-editor-status-ok").hide();
+                    f.find("#wa-editor-status-fail span").html(response.errors.join(', '));
+                    f.find("#wa-editor-status-fail").fadeIn('slow');
+                }
+            }, "json")
+            return false;
+        });
+    });
+</script>
