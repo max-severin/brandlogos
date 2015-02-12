@@ -1,6 +1,7 @@
 <?php
 
 /*
+ * Class shopBrandlogosPluginBackendSavelogosController
  * @author Max Severin <makc.severin@gmail.com>
  */
 

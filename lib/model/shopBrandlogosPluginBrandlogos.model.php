@@ -1,6 +1,7 @@
 <?php
 
 /*
+ * Class shopBrandlogosPluginBrandlogosModel
  * @author Max Severin <makc.severin@gmail.com>
  */
 
@@ -9,7 +10,9 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
     protected $table = 'shop_brand_logos';
 
     public function save($brand) {
+
     	if ($old_data = $this->getByField('brand_value_id', $brand['id'])) {
+
     		$fields = array(
 			    'brand_value_id' => $brand['id'],
 			);
@@ -23,7 +26,9 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
 			    'position' => $brand['position'],
 			);
 			$this->updateByField($fields, $data);
+
     	} else {
+
     		if ( file_exists($brand['logo']) ) {
                 $brand['filename'] = $this->saveFile($brand['logo']);
             } else {
@@ -35,22 +40,18 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
 			    'position' => $brand['position'],
 			);
 			$this->insert($data, 1);
+
     	}
+
     }
 
     public function saveFile($file, $old_file = false) {
+
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brandlogos'));
 
-        if ($settings['height'])
-            $height = $settings['height'];
-        else 
-            $height = 64;
-
-        if ($settings['width'])
-            $width = $settings['width'];
-        else 
-            $width = 64;
+        ($settings['height']) ? $height = $settings['height'] : $height = 64;
+        ($settings['width']) ? $width = $settings['width'] : $width = 64;
 
         $rand = mt_rand();
         $name = "$rand.original.png";

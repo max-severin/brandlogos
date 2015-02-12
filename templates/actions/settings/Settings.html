@@ -22,7 +22,7 @@
                    
 	        <div class="field">
 	            <div class="name">
-	                Ширина изображения
+	                Ширина изображения (px)
 	            </div>
 	            <div class="value">
 	                <input type="text" name="shop_brandlogos[width]" value="{if isset($settings.width)}{$settings.width}{/if}" />
@@ -31,7 +31,7 @@
 
 	        <div class="field">
 	            <div class="name">
-	                Высота изображения
+	                Высота изображения (px)
 	            </div>
 	            <div class="value">
 	                <input type="text" name="shop_brandlogos[height]" value="{if isset($settings.height)}{$settings.height}{/if}" />
@@ -50,6 +50,7 @@
     </div>
 </div>
 
+{if $brands}
 <div class="set-wrap" {if !isset($settings.status) || $settings.status != 1}style="display: none;"{/if}>
     <div class="fields form">
         <form action="?plugin=brandlogos&action=savelogos" method="post" id="save-brand-logos-form" enctype="multipart/form-data">
@@ -97,6 +98,8 @@
         </form>
     </div>
 </div>
+
+{/if}
 
 
 <script type="text/javascript">

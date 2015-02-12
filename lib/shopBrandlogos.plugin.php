@@ -1,6 +1,7 @@
 <?php
 
 /*
+ * Class shopBrandlogosPlugin
  * @author Max Severin <makc.severin@gmail.com>
  */
 
