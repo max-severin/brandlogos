@@ -22,12 +22,11 @@ class shopBrandlogosPluginSettingsAction extends waViewAction {
         if ($brand_feature) {
             $brand_values = $feature_model->getFeatureValues($brand_feature);
             foreach ($brand_values as $id => $name) {
-                $brand = $brand_logos_model->getByField('brand_value_id', $id);
+                $brand = $brand_logos_model->getByField('brand_id', $id);
                 $brands[$id] = array(
                     'id' => $id,
                     'name' => $name,
-                    'logo' => $brand['logo'],
-                    'position' => $brand['position'],                    
+                    'logo' => $brand['logo'],                   
                 );
             }
         }             

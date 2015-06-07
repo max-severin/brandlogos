@@ -7,14 +7,14 @@
 
 class shopBrandlogosPluginBrandlogosModel extends waModel {
 
-    protected $table = 'shop_brand_logos';
+    protected $table = 'shop_brand_logo';
 
     public function save($brand) {
 
-    	if ($old_data = $this->getByField('brand_value_id', $brand['id'])) {
+    	if ($old_data = $this->getByField('brand_id', $brand['id'])) {
 
     		$fields = array(
-			    'brand_value_id' => $brand['id'],
+			    'brand_id' => $brand['id'],
 			);
     		if ( file_exists($brand['logo']) ) {
                 $brand['filename'] = $this->saveFile($brand['logo'], $old_data['logo']);
@@ -23,7 +23,6 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
             }
 			$data = array(
 			    'logo' => $brand['filename'],
-			    'position' => $brand['position'],
 			);
 			$this->updateByField($fields, $data);
 
@@ -35,9 +34,8 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
             	$brand['filename'] = '';
             }
     		$data = array(
-			    'brand_value_id' => $brand['id'],
+			    'brand_id' => $brand['id'],
 			    'logo' => $brand['filename'],
-			    'position' => $brand['position'],
 			);
 			$this->insert($data, 1);
 

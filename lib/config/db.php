@@ -5,12 +5,11 @@
  */
 
 return array(
-    'shop_brand_logos' => array(
-        'brand_value_id' => array('int', 11, 'null' => 0),
+    'shop_brand_logo' => array(
+        'brand_id' => array('int', 11, 'null' => 0),
         'logo' => array('text', 'null' => 0),
-        'position' => array('text', 'null' => 0),
         ':keys' => array(
-            'PRIMARY' => 'brand_value_id',
+            'PRIMARY' => 'brand_id',
         ),
     ),
 );
