@@ -61,4 +61,25 @@ class shopBrandlogosPlugin extends shopPlugin {
 
     }
 
+    /**
+     * Generates the HTML code for the user control with ID settingNumberControl for number parametrs
+     * @param string $name
+     * @param array $params
+     * @return string
+     */
+    static public function settingNumberControl($name, $params = array()) {
+
+        $control = '';
+
+        $control_name = htmlentities($name, ENT_QUOTES, 'utf-8');
+
+        $control .= "<input id=\"{$params['id']}\" type=\"number\" name=\"{$control_name}\" ";
+        $control .= self::addCustomParams(array('class', 'placeholder', 'value',), $params);
+        $control .= self::addCustomParams(array('min', 'max', 'step',), $params['options']);
+        $control .= ">";
+
+        return $control;
+
+    }
+
 }

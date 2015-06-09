@@ -4,14 +4,14 @@
  * Class shopBrandlogosPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
-
-class shopBrandlogosPluginSettingsAction extends waViewAction {
+class shopBrandlogosPluginSettingsAction extends shopPluginsSettingsAction {
 
     public function execute() {
+        $_GET['id'] = 'brandlogos';
 
-        $feature_model = new shopFeatureModel();
         $app_settings_model = new waAppSettingsModel();
-        $brand_logos_model = new shopBrandlogosPluginBrandlogosModel();
+        $feature_model      = new shopFeatureModel();
+        $brand_logos_model  = new shopBrandlogosPluginBrandlogosModel();
 
         $brands = array();
 
@@ -29,11 +29,13 @@ class shopBrandlogosPluginSettingsAction extends waViewAction {
                     'logo' => $brand['logo'],                   
                 );
             }
-        }             
+        }
 
-        $this->view->assign('settings', $settings);
+        $view = wa()->getView(); 
+        $view->assign('settings', $settings);
         $this->view->assign('brands', $brands);
 
+        parent::execute();
     }
 
 }
