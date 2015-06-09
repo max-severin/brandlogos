@@ -4,13 +4,11 @@
 
 
 <div class="settings-wrapper">
-
     {include file="../../../../../templates/actions/plugins/PluginsSettings.html"}
-
 </div>
 
 {if $brands}
-    <div class="set-wrap" {if !isset($settings.status) || $settings.status != 1}style="display: none;"{/if}>
+    <div class="settings-wrapper" {if !isset($settings.status) || $settings.status !== 'on'}style="display: none;"{/if}>
         <div class="fields form">
             <form action="?plugin=brandlogos&action=savelogos" method="post" id="save-brand-logos-form" enctype="multipart/form-data">
                 {$wa->csrf()}
@@ -50,34 +48,12 @@
     </div>
 {/if}
 
+<script type="text/javascript">
+    {include file="../../../js/brandlogos.backend.settings.js"}
+</script>
 
 <script type="text/javascript">
-    $(function() {
-        $("#plugins-settings-form").submit(function() {
-            var f = $(this);
-            var st = f.find('select[name="shop_brandlogos[status]"] option:selected').val();
-            
-            $.post(f.attr('action'), f.serialize(), function(response) {
-                if (response.status == 'ok') {
-                    f.find('#wa-design-button').removeClass('red').addClass('green');
-                    f.find("#wa-editor-status-fail").hide()
-                    f.find("#wa-editor-status-ok span").html(response.data.message);
-                    f.find("#wa-editor-status-ok").fadeIn('slow', function() {
-                        $(this).fadeOut(1000);
-                    });
-                    if( st == 1 ) {
-                        $('#save-brand-logos-form').closest('.settings-wrapper').show();
-                    } else {
-                        $('#save-brand-logos-form').closest('.settings-wrapper').hide();
-                    }
-                } else {
-                    f.find('#wa-design-button').removeClass('green').addClass('red');
-                    f.find("#wa-editor-status-ok").hide();
-                    f.find("#wa-editor-status-fail span").html(response.errors.join(', '));
-                    f.find("#wa-editor-status-fail").fadeIn('slow');
-                }
-            }, "json")
-            return false;
-        });
-    });
+    (function ($) {
+        brandlogosBackendSettings.initModule();
+    })(jQuery);
 </script>
