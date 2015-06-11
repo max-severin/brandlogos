@@ -23,12 +23,15 @@
                             {foreach $brands as $id => $brand}
                             <li>
                                 <input type="hidden" name="id[]" value="{$brand.id}"/>
+
+                                {if $brand.logo}
+                                <div class="image-wrapper">
+                                    <img src="/wa-data/public/shop/brandlogos/{$brand.logo}" alt="Логотип {$brand.name}" title="Логотип {$brand.name}" />
+                                </div>
+                                {/if}
+
                                 <span class="b-name">{$brand.name}</span>
-
-                                <img src="/wa-data/public/shop/brandlogos/{$brand.logo}" alt="Логотип {$brand.name}" title="Логотип {$brand.name}" />
-
-                                <b>Изображение</b><input type="file" name="logo[{$brand.id}]" value=""/>
-                                <br />
+                                <input type="file" name="logo[{$brand.id}]" value=""/>
                             </li>
                             {/foreach}
                         </ul>
