@@ -29,35 +29,35 @@ class shopBrandlogosPlugin extends shopPlugin {
 
                 if ($product_brands) {
 
-                	$brand_logos_model = new shopBrandlogosPluginBrandlogosModel();
+                    $brand_logos_model = new shopBrandlogosPluginBrandlogosModel();
 
-                	foreach ($product_brands as $value) {
-                		$brand_id = $feature_value_model->getValueId($brand_feature['id'], $value);
-                		$brand = $brand_logos_model->getByField('brand_id', $brand_id);
-                		$brand['id'] = $brand_id;
-                		$brand['name'] = $value;
+                    foreach ($product_brands as $value) {
+                        $brand_id = $feature_value_model->getValueId($brand_feature['id'], $value);
+                        $brand = $brand_logos_model->getByField('brand_id', $brand_id);
+                        $brand['id'] = $brand_id;
+                        $brand['name'] = $value;
                		              		
-                		$brands[$brand_id] = $brand;
-                	}
+                        $brands[$brand_id] = $brand;
+                    }
 
-		            $view = wa()->getView(); 
-		            $view->assign('brands', $brands);
+                    $view = wa()->getView(); 
+                    $view->assign('brands', $brands);
 
-		            $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
+                    $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
 
-		            return $html;
+                    return $html;
 
                 }  else {
 
-		            return;
+                    return;
 
-		        } 
+                } 
 
             }  else {
 
-	            return;
+                return;
 
-	        }             
+            }             
 
         } else {
 
