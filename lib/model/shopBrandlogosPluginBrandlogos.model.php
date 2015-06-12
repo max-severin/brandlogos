@@ -4,7 +4,6 @@
  * Class shopBrandlogosPluginBrandlogosModel
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopBrandlogosPluginBrandlogosModel extends waModel {
 
     protected $table = 'shop_brand_logo';

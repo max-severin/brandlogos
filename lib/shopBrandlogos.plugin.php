@@ -2,17 +2,23 @@
 
 /*
  * Class shopBrandlogosPlugin
+ * Brand logo plugin for Webasyst Shop-Script
+ * Shop administrators can to add logo file to brand features and then to display them in frontend
  * @author Max Severin <makc.severin@gmail.com>
  */
 
 class shopBrandlogosPlugin extends shopPlugin {
-
+    
+    /**
+     * Frontend method that displays brand logo image
+     * @return string
+     */
     static function displayBrandLogo($id) {
 
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brandlogos'));
 
-        if ($settings['status']) {
+        if ($settings['status'] === 'on') {
 
             $feature_model = new shopFeatureModel();
             $brand_feature = $feature_model->getByCode('brand');

@@ -4,7 +4,6 @@
  * Class shopBrandlogosPluginBackendSavelogosController
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopBrandlogosPluginBackendSavelogosController extends waJsonController {
 
     public function execute() {

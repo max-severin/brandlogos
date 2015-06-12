@@ -3,7 +3,6 @@
 /*
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 return array(
     'name' => 'Логотипы брендов',
     'description' => 'Возможность закрепить за каждым брендом логотип-стикер',

@@ -22,9 +22,9 @@ var brandlogosBackendSettings = (function () { "use strict";
         $.post(f.attr('action'), f.serialize(), function(response) {
             if (response.status == 'ok') {
                 f.find('#wa-design-button').removeClass('red').addClass('green');
-                f.find("#wa-editor-status-fail").hide()
-                f.find("#wa-editor-status-ok span").html(response.data.message);
-                f.find("#wa-editor-status-ok").fadeIn('slow', function() {
+                f.find('#wa-editor-status-fail').hide()
+                f.find('#wa-editor-status-ok span').html(response.data.message);
+                f.find('#wa-editor-status-ok').fadeIn('slow', function() {
                     $(this).fadeOut(1000);
                 });
                 if( st === 'on' ) {
@@ -34,11 +34,11 @@ var brandlogosBackendSettings = (function () { "use strict";
                 }
             } else {
                 f.find('#wa-design-button').removeClass('green').addClass('red');
-                f.find("#wa-editor-status-ok").hide();
-                f.find("#wa-editor-status-fail span").html(response.errors.join(', '));
-                f.find("#wa-editor-status-fail").fadeIn('slow');
+                f.find('#wa-editor-status-ok').hide();
+                f.find('#wa-editor-status-fail span').html(response.errors.join(', '));
+                f.find('#wa-editor-status-fail').fadeIn('slow');
             }
-        }, "json");
+        }, 'json');
     };
     //------------------- END EVENT HANDLERS ----------------------
 

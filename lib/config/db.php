@@ -3,7 +3,6 @@
 /*
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 return array(
     'shop_brand_logo' => array(
         'brand_id' => array('int', 11, 'null' => 0),
