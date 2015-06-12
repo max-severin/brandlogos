@@ -12,31 +12,31 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
 
     	if ($old_data = $this->getByField('brand_id', $brand['id'])) {
 
-    		$fields = array(
-			    'brand_id' => $brand['id'],
-			);
-    		if ( file_exists($brand['logo']) ) {
+            $fields = array(
+                'brand_id' => $brand['id'],
+            );
+            if ( file_exists($brand['logo']) ) {
                 $brand['filename'] = $this->saveFile($brand['logo'], $old_data['logo']);
             } else {
-            	$brand['filename'] = $old_data['logo'];
+                $brand['filename'] = $old_data['logo'];
             }
-			$data = array(
-			    'logo' => $brand['filename'],
-			);
-			$this->updateByField($fields, $data);
+            $data = array(
+                'logo' => $brand['filename'],
+            );
+            $this->updateByField($fields, $data);
 
     	} else {
 
-    		if ( file_exists($brand['logo']) ) {
+            if ( file_exists($brand['logo']) ) {
                 $brand['filename'] = $this->saveFile($brand['logo']);
             } else {
             	$brand['filename'] = '';
             }
-    		$data = array(
-			    'brand_id' => $brand['id'],
-			    'logo' => $brand['filename'],
-			);
-			$this->insert($data, 1);
+            $data = array(
+                'brand_id' => $brand['id'],
+                'logo' => $brand['filename'],
+            );
+            $this->insert($data, 1);
 
     	}
 
