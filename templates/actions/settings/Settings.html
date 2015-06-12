@@ -1,5 +1,5 @@
 <style>
-    {include file="../../../css/brandlogos_backend_settings.css" inline}
+    {include file="../../../css/brandlogos.backend.settings.css" inline}
 </style>
 
 
@@ -15,8 +15,8 @@
 
                 <div class="field">
                     <div class="name">
-                        <b>Бренды</b>
-                        <p class="hint">Добавьте логотипы к брендам, а также их местоположения относительно изображений товара</p>
+                        <b>[`Brands`]</b>
+                        <p class="hint">[`Add logos to brands`]</p>
                     </div>
                     <div class="value">
                         <ul class="menu-v brands">
@@ -26,7 +26,7 @@
 
                                 {if $brand.logo}
                                 <div class="image-wrapper">
-                                    <img src="/wa-data/public/shop/brandlogos/{$brand.logo}" alt="Логотип {$brand.name}" title="Логотип {$brand.name}" />
+                                    <img src="{$wa_static_url}wa-data/public/shop/brandlogos/{$brand.logo}" alt="[`Logo`] {$brand.name}" title="[`Logo`] {$brand.name}" />
                                 </div>
                                 {/if}
 
@@ -40,7 +40,7 @@
 
                 <div class="field res">
                     <div class="value submit">
-                        <input type="submit" class="button green" value="Сохранить">
+                        <input type="submit" class="button green" value="[`Save`]">
                         <span id="plugins-settings-form-status" style="display:none">
                             <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
                         </span>

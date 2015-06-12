@@ -1,10 +1,10 @@
 # brandlogos
 
 ## Description
-Brand logo plugin for Webasyst Shop-Script
+Brand logos plugin for Webasyst Shop-Script
 
 ## Features
-Shop administrators can to add logo file to brand features and then to display them in frontend.
+Shop administrators can to add logo file to each brand feature and then to display these images in frontend.
 
 ## Installing
 ### Auto

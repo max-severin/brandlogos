@@ -5,17 +5,17 @@
  */
 return array(
     'status' => array(
-        'title'        => 'Статус плагина',
+        'title'        => _wp('Status'),
         'value'        => 'off',
         'control_type' => waHtmlControl::SELECT,
         'options'      => array(
-            'off' => 'Выключен',
-            'on'  => 'Включен',
+            'off' => _wp('Off'),
+            'on'  => _wp('On'),
         ),
     ),
     'width' => array(
-        'title'        => 'Ширина (px)',
-        'description'  => 'Ширина загружаемого файла изображения',
+        'title'        => _wp('Width (px)'),
+        'description'  => _wp('Width of the uploaded image'),
         'placeholder'  => '64',
         'value'        => '64',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',
@@ -24,8 +24,8 @@ return array(
         ),
     ),
     'height' => array(
-        'title'        => 'Высота (px)',
-        'description'  => 'Высота загружаемого файла изображения',
+        'title'        => _wp('Height (px)'),
+        'description'  => _wp('Height of the uploaded image'),
         'placeholder'  => '64',
         'value'        => '64',
         'control_type' => waHtmlControl::CUSTOM.' '.'shopCallbPlugin::settingNumberControl',

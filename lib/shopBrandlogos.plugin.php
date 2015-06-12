@@ -6,7 +6,6 @@
  * Shop administrators can to add logo file to brand features and then to display them in frontend
  * @author Max Severin <makc.severin@gmail.com>
  */
-
 class shopBrandlogosPlugin extends shopPlugin {
     
     /**
