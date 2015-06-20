@@ -12,7 +12,7 @@ class shopBrandlogosPlugin extends shopPlugin {
      * Frontend method that displays brand logo image
      * @return string
      */
-    static function displayBrandLogo($id) {
+    static function displayBrandLogo($product_id) {
 
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brandlogos'));
@@ -23,15 +23,15 @@ class shopBrandlogosPlugin extends shopPlugin {
 
             if ($brand_feature) {
                 $feature_value_model = $feature_model->getValuesModel($brand_feature['type']);
-                $product_brands = $feature_value_model->getProductValues($id, $brand_feature['id']);                  
+                $product_brands = $feature_value_model->getProductValues($product_id, $brand_feature['id']);                  
 
                 if ($product_brands) {
                     $brands = array();
-                    $brand_logos_model = new shopBrandlogosPluginBrandlogosModel();
+                    $brandlogos_model = new shopBrandlogosPluginBrandlogosModel();
 
                     foreach ($product_brands as $value) {
                         $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $value);
-                        $brand         = $brand_logos_model->getByField('brand_id', $brand_id);
+                        $brand         = $brandlogos_model->getByField('brand_id', $brand_id);
                         $brand['id']   = $brand_id;
                         $brand['name'] = $value;
                		              		

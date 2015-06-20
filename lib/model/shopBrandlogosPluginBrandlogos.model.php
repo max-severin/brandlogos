@@ -9,7 +9,6 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
     protected $table = 'shop_brand_logo';
 
     public function save($brand) {
-
     	if ($old_data = $this->getByField('brand_id', $brand['id'])) {
 
             $fields = array(
@@ -39,11 +38,9 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
             $this->insert($data, 1);
 
     	}
-
     }
 
     public function saveFile($file, $old_file = false) {
-
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brandlogos'));
 
