@@ -70,3 +70,11 @@ msgstr ""
 msgid "Height of the uploaded image"
 msgstr ""
 
+#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:17
+msgid "Brand feature"
+msgstr ""
+
+#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:18
+msgid "Select the feature you want to add logo"
+msgstr ""
+

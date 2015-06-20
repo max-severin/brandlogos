@@ -15,25 +15,25 @@ class shopBrandlogosPluginSettingsAction extends shopPluginsSettingsAction {
 
         $brands = array();
 
-        $settings = $app_settings_model->get(array('shop', 'brandlogos'));
+        $settings   = $app_settings_model->get(array('shop', 'brandlogos'));
+        $feature_id = $settings['feature_id'];
 
-        $brand_feature = $feature_model->getByCode('brand');
+        if ($feature_id) {
+            $brand_feature = $feature_model->getById($feature_id);
+            $brand_values  = $feature_model->getFeatureValues($brand_feature);
 
-        if ($brand_feature) {
-            $brand_values = $feature_model->getFeatureValues($brand_feature);
             foreach ($brand_values as $id => $name) {
                 $brand = $brand_logos_model->getByField('brand_id', $id);
                 $brands[$id] = array(
-                    'id' => $id,
+                    'id'   => $id,
                     'name' => $name,
                     'logo' => $brand['logo'],                   
                 );
             }
         }
 
-        $view = wa()->getView(); 
-        $view->assign('settings', $settings);
         $this->view->assign('brands', $brands);
+        $this->view->assign('settings', $settings);
 
         parent::execute();
     }

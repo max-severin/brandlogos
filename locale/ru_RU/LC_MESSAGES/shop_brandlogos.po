@@ -71,3 +71,11 @@ msgstr "Высота (px)"
 msgid "Height of the uploaded image"
 msgstr "Высота загружаемого файла изображения"
 
+#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:17
+msgid "Brand feature"
+msgstr "Характеристика"
+
+#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:18
+msgid "Select the feature you want to add logo"
+msgstr "Выберите характеристику, к значениям которой хотите добавить логотипы"
+
