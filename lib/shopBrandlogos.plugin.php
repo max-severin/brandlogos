@@ -17,23 +17,22 @@ class shopBrandlogosPlugin extends shopPlugin {
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brandlogos'));
 
-        if ($settings['status'] === 'on') {
-
+        if ($settings['status'] === 'on' && $settings['feature_id']) {
             $feature_model = new shopFeatureModel();
-            $brand_feature = $feature_model->getByCode('brand');
-            if ($brand_feature) {
+            $brand_feature = $feature_model->getById($settings['feature_id']);
 
+            if ($brand_feature) {
                 $feature_value_model = $feature_model->getValuesModel($brand_feature['type']);
                 $product_brands = $feature_value_model->getProductValues($id, $brand_feature['id']);                  
 
                 if ($product_brands) {
-
+                    $brands = array();
                     $brand_logos_model = new shopBrandlogosPluginBrandlogosModel();
 
                     foreach ($product_brands as $value) {
-                        $brand_id = $feature_value_model->getValueId($brand_feature['id'], $value);
-                        $brand = $brand_logos_model->getByField('brand_id', $brand_id);
-                        $brand['id'] = $brand_id;
+                        $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $value);
+                        $brand         = $brand_logos_model->getByField('brand_id', $brand_id);
+                        $brand['id']   = $brand_id;
                         $brand['name'] = $value;
                		              		
                         $brands[$brand_id] = $brand;
@@ -45,25 +44,11 @@ class shopBrandlogosPlugin extends shopPlugin {
                     $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
 
                     return $html;
+                }
+            }
+        }
 
-                }  else {
-
-                    return;
-
-                } 
-
-            }  else {
-
-                return;
-
-            }             
-
-        } else {
-
-            return;
-
-        }        
-
+        return;
     }
 
     /**
@@ -112,7 +97,7 @@ class shopBrandlogosPlugin extends shopPlugin {
         $control = '';
 
         $control_name = htmlentities($name, ENT_QUOTES, 'utf-8');
-        
+
         $control .= "<select name=\"{$control_name}\" autocomplete=\"off\"";
         $control .= self::addCustomParams(array('class', 'style', 'id', 'readonly', 'autofocus'), $params);
         $control .= ">\n";
