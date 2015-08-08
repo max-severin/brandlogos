@@ -1,4 +1,4 @@
-# brandlogos
+# brlgs
 
 ## Description
 Brand logos plugin for Webasyst Shop-Script
@@ -15,9 +15,9 @@ Shop administrators can to add logo file to each brand feature and then to displ
 
 2. Add the following line into the /PATH_TO_WEBASYST/wa-config/apps/shop/plugins.php file (this file lists all installed shop plugins):
 
-		'brandlogos' => true,
+		'brlgs' => true,
 
 3. Done. Configure the plugin in the plugins tab of shop backend.
 
 ## Specificity
-To output the brand logo in shop frontend paste in the product template the following code: **{shopBrandlogosPlugin::displayBrandLogo($product.id)}**
+To output the brand logo in shop frontend paste in the product template the following code: **{shopBrlgsPlugin::displayBrandLogo($product.id)}**

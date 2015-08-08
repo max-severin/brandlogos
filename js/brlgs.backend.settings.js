@@ -1,11 +1,11 @@
 /**
- * brandlogos.backend.settings.js
- * Module brandlogosBackendSettings
+ * brlgs.backend.settings.js
+ * Module brlgsBackendSettings
  */
 
-/*global $, brandlogosBackendSettings */
+/*global $, brlgsBackendSettings */
 
-var brandlogosBackendSettings = (function () { "use strict";
+var brlgsBackendSettings = (function () { "use strict";
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
         onFormSubmit, initModule;
@@ -17,7 +17,7 @@ var brandlogosBackendSettings = (function () { "use strict";
         event.stopImmediatePropagation();
 
         var f = $(this);
-        var st = f.find('select[name="shop_brandlogos[status]"] option:selected').val();
+        var st = f.find('select[name="shop_brlgs[status]"] option:selected').val();
             
         $.post(f.attr('action'), f.serialize(), function(response) {
             if (response.status == 'ok') {
@@ -28,9 +28,9 @@ var brandlogosBackendSettings = (function () { "use strict";
                     $(this).fadeOut(1000);
                 });
                 if( st === 'on' ) {
-                    $('#save-brand-logos-form').closest('.settings-wrapper').show();
+                    $('#save-brlgs-form').closest('.settings-wrapper').show();
                 } else {
-                    $('#save-brand-logos-form').closest('.settings-wrapper').hide();
+                    $('#save-brlgs-form').closest('.settings-wrapper').hide();
                 }
             } else {
                 f.find('#wa-design-button').removeClass('green').addClass('red');

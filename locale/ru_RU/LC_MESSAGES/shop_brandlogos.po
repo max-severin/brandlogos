@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: shop/plugins/brandlogos\n"
+"Project-Id-Version: shop/plugins/brlgs\n"
 "POT-Creation-Date: 2015-06-13 01:33+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Max Severin <makc.severin@gmail.com>\n"
-"Language-Team: shop/plugins/brandlogos\n"
+"Language-Team: shop/plugins/brlgs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,67 +15,67 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
-#: /wa-apps/shop/plugins/brandlogos/templates/actions/settings/Settings.html:18
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:18
 msgid "Brands"
 msgstr "Бренды"
 
-#: /wa-apps/shop/plugins/brandlogos/templates/actions/settings/Settings.html:19
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:19
 msgid "Add logos to brands"
 msgstr "Добавьте логотипы к брендам"
 
-#: /wa-apps/shop/plugins/brandlogos/templates/actions/settings/Settings.html:29
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:29
 msgid "Logo"
 msgstr "Логотип"
 
-#: /wa-apps/shop/plugins/brandlogos/templates/actions/settings/Settings.html:43
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:43
 msgid "Save"
 msgstr "Сохранить"
 
-#: /wa-apps/shop/plugins/brandlogos/templates/actions/settings/Settings.html:45
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:45
 msgid "Saved"
 msgstr "Сохранено"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/plugin.php:7
+#: /wa-apps/shop/plugins/brlgs/lib/config/plugin.php:7
 msgid "Brand logos"
 msgstr "Логотипы брендов"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/plugin.php:8
+#: /wa-apps/shop/plugins/brlgs/lib/config/plugin.php:8
 msgid "The ability to add image with logo for each brand"
 msgstr "Возможность добавить каждому бренду изображение с логотипом"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:8
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:8
 msgid "Status"
 msgstr "Статус плагина"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:12
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:12
 msgid "Off"
 msgstr "Выключен"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:13
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:13
 msgid "On"
 msgstr "Включен"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:17
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:17
 msgid "Width (px)"
 msgstr "Ширина (px)"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:18
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:18
 msgid "Width of the uploaded image"
 msgstr "Ширина загружаемого файла изображения"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:27
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:27
 msgid "Height (px)"
 msgstr "Высота (px)"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:28
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:28
 msgid "Height of the uploaded image"
 msgstr "Высота загружаемого файла изображения"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:17
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:17
 msgid "Brand feature"
 msgstr "Характеристика"
 
-#: /wa-apps/shop/plugins/brandlogos/lib/config/settings.php:18
+#: /wa-apps/shop/plugins/brlgs/lib/config/settings.php:18
 msgid "Select the feature you want to add logo"
 msgstr "Выберите характеристику, к значениям которой хотите добавить логотипы"
 

@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Class shopBrandlogosPluginBrandlogosModel
+ * Class shopBrlgsPluginBrlgsModel
  * @author Max Severin <makc.severin@gmail.com>
  */
-class shopBrandlogosPluginBrandlogosModel extends waModel {
+class shopBrlgsPluginBrlgsModel extends waModel {
 
-    protected $table = 'shop_brand_logo';
+    protected $table = 'shop_brlgs_logo';
 
     public function save($brand) {
     	if ($old_data = $this->getByField('brand_id', $brand['id'])) {
@@ -42,14 +42,14 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
 
     public function saveFile($file, $old_file = false) {
         $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'brandlogos'));
+        $settings = $app_settings_model->get(array('shop', 'brlgs'));
 
         ($settings['height']) ? $height = $settings['height'] : $height = 64;
         ($settings['width']) ? $width = $settings['width'] : $width = 64;
 
         $rand = mt_rand();
         $name = "$rand.original.png";
-        $filename = wa()->getDataPath("brandlogos/{$name}", TRUE, 'shop'); 
+        $filename = wa()->getDataPath("brlgs/{$name}", TRUE, 'shop'); 
 
         waFiles::move($file, $filename);   
 
@@ -62,7 +62,7 @@ class shopBrandlogosPluginBrandlogosModel extends waModel {
         $img->resize($height, $width, waImage::AUTO)->save($filename, 90);
 
         if ($old_file) {
-            waFiles::delete(wa()->getDataPath("brandlogos/{$old_file}", TRUE, 'shop'));
+            waFiles::delete(wa()->getDataPath("brlgs/{$old_file}", TRUE, 'shop'));
         }
 
         return $name;

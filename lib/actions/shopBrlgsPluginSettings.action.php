@@ -1,21 +1,21 @@
 <?php
 
 /*
- * Class shopBrandlogosPluginSettingsAction
+ * Class shopBrlgsPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
-class shopBrandlogosPluginSettingsAction extends shopPluginsSettingsAction {
+class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
 
     public function execute() {
-        $_GET['id'] = 'brandlogos';
+        $_GET['id'] = 'brlgs';
 
         $app_settings_model = new waAppSettingsModel();
         $feature_model      = new shopFeatureModel();
-        $brand_logos_model  = new shopBrandlogosPluginBrandlogosModel();
+        $brand_logos_model  = new shopBrlgsPluginBrlgsModel();
 
         $brands = array();
 
-        $settings   = $app_settings_model->get(array('shop', 'brandlogos'));
+        $settings   = $app_settings_model->get(array('shop', 'brlgs'));
         $feature_id = $settings['feature_id'];
 
         if ($feature_id) {

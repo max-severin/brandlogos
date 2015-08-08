@@ -6,9 +6,10 @@
 return array(
     'name' => /*_wp*/('Brand logos'),
     'description' => /*_wp*/('The ability to add image with logo for each brand'),
+    'img'=>'img/brlgs.png',
+    'vendor' => 1020720,
     'version' => '1.0.0',
     'shop_settings' => true,
-    'img'=>'img/brandlogos.png',
     'handlers'    => array(
         'frontend_head' => 'frontendHead',
     ),

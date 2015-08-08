@@ -17,14 +17,14 @@ return array(
         'title'        => _wp('Brand feature'),
         'description'  => _wp('Select the feature you want to add logo'),
         'value'        => '',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrandlogosPlugin::settingFeatureSelectControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrlgsPlugin::settingFeatureSelectControl',
     ),
     'width' => array(
         'title'        => _wp('Width (px)'),
         'description'  => _wp('Width of the uploaded image'),
         'placeholder'  => '64',
         'value'        => '64',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrandlogosPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrlgsPlugin::settingNumberControl',
         'options'      => array(
             'step' => '1',
         ),
@@ -34,7 +34,7 @@ return array(
         'description'  => _wp('Height of the uploaded image'),
         'placeholder'  => '64',
         'value'        => '64',
-        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrandlogosPlugin::settingNumberControl',
+        'control_type' => waHtmlControl::CUSTOM.' '.'shopBrlgsPlugin::settingNumberControl',
         'options'      => array(
             'step' => '1',
         ),

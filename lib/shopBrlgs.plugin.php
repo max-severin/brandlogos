@@ -1,12 +1,12 @@
 <?php
 
 /*
- * Class shopBrandlogosPlugin
+ * Class shopBrlgsPlugin
  * Brand logo plugin for Webasyst Shop-Script
  * Shop administrators can to add logo file to brand features and then to display them in frontend
  * @author Max Severin <makc.severin@gmail.com>
  */
-class shopBrandlogosPlugin extends shopPlugin {
+class shopBrlgsPlugin extends shopPlugin {
     
     /**
      * Frontend method that displays brand logo image
@@ -15,7 +15,7 @@ class shopBrandlogosPlugin extends shopPlugin {
     static function displayBrandLogo($product_id) {
 
         $app_settings_model = new waAppSettingsModel();
-        $settings = $app_settings_model->get(array('shop', 'brandlogos'));
+        $settings = $app_settings_model->get(array('shop', 'brlgs'));
 
         if ($settings['status'] === 'on' && $settings['feature_id']) {
             $feature_model = new shopFeatureModel();
@@ -27,11 +27,11 @@ class shopBrandlogosPlugin extends shopPlugin {
 
                 if ($product_brands) {
                     $brands = array();
-                    $brandlogos_model = new shopBrandlogosPluginBrandlogosModel();
+                    $brlgs_model = new shopBrlgsPluginBrlgsModel();
 
                     foreach ($product_brands as $value) {
                         $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $value);
-                        $brand         = $brandlogos_model->getByField('brand_id', $brand_id);
+                        $brand         = $brlgs_model->getByField('brand_id', $brand_id);
                         $brand['id']   = $brand_id;
                         $brand['name'] = $value;
                		              		
@@ -83,7 +83,7 @@ class shopBrandlogosPlugin extends shopPlugin {
         $features = $feature_model->select('*')->where('selectable = 1')->order('id DESC')->fetchAll();
 
         $app_settings_model = new waAppSettingsModel();
-        $feature_id = $app_settings_model->get(array('shop', 'brandlogos'), 'feature_id');
+        $feature_id = $app_settings_model->get(array('shop', 'brlgs'), 'feature_id');
         if (!$feature_id) {
             $ids = array('brand', 'manufacturer', 'make');
             foreach ($features as $f) {

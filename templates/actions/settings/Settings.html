@@ -1,5 +1,5 @@
 <style>
-    {include file="../../../css/brandlogos.backend.settings.css" inline}
+    {include file="../../../css/brlgs.backend.settings.css" inline}
 </style>
 
 
@@ -10,7 +10,7 @@
 {if $brands}
     <div class="settings-wrapper" {if !isset($settings.status) || $settings.status !== 'on'}style="display: none;"{/if}>
         <div class="fields form">
-            <form action="?plugin=brandlogos&action=savelogos" method="post" id="save-brand-logos-form" enctype="multipart/form-data">
+            <form action="?plugin=brlgs&action=savelogos" method="post" id="save-brlgs-form" enctype="multipart/form-data">
                 {$wa->csrf()}
 
                 <div class="field">
@@ -26,7 +26,7 @@
 
                                 {if $brand.logo}
                                 <div class="image-wrapper">
-                                    <img src="{$wa_static_url}wa-data/public/shop/brandlogos/{$brand.logo}" alt="[`Logo`] {$brand.name}" title="[`Logo`] {$brand.name}" />
+                                    <img src="{$wa_static_url}wa-data/public/shop/brlgs/{$brand.logo}" alt="[`Logo`] {$brand.name}" title="[`Logo`] {$brand.name}" />
                                 </div>
                                 {/if}
 
@@ -52,11 +52,11 @@
 {/if}
 
 <script type="text/javascript">
-    {include file="../../../js/brandlogos.backend.settings.js"}
+    {include file="../../../js/brlgs.backend.settings.js"}
 </script>
 
 <script type="text/javascript">
     (function ($) {
-        brandlogosBackendSettings.initModule();
+        brlgsBackendSettings.initModule();
     })(jQuery);
 </script>
