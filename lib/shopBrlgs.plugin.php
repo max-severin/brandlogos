@@ -17,7 +17,7 @@ class shopBrlgsPlugin extends shopPlugin {
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brlgs'));
 
-        if ($settings['status'] === 'on' && $settings['feature_id']) {
+        if (isset($settings['status']) && $settings['status'] === 'on' && isset($settings['feature_id']) && $settings['feature_id']) {
             $feature_model = new shopFeatureModel();
             $brand_feature = $feature_model->getById($settings['feature_id']);
 
