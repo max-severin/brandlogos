@@ -16,9 +16,9 @@ class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
         $brands = array();
 
         $settings   = $app_settings_model->get(array('shop', 'brlgs'));
-        $feature_id = $settings['feature_id'];
+        if ( isset($settings['feature_id']) && $settings['feature_id'] ) {
+            $feature_id = $settings['feature_id'];
 
-        if ($feature_id) {
             $brand_feature = $feature_model->getById($feature_id);
             $brand_values  = $feature_model->getFeatureValues($brand_feature);
 
