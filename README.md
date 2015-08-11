@@ -22,4 +22,4 @@ Shop administrators can to add logo file to each brand feature and then to displ
 ## Specificity
 To output the brand logo in shop frontend paste in the product template the following code:  
 **{shopBrlgsPlugin::displayBrandLogo($product.id, 'by_product')}** - by product id  
-**{shopBrlgsPlugin::displayBrandLogo($f_value, 'by_brand_value')}** - by brand value
+**{shopBrlgsPlugin::displayBrandLogo($brand_value, 'by_brand_value')}** - by brand value
