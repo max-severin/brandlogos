@@ -12,7 +12,7 @@ class shopBrlgsPlugin extends shopPlugin {
      * Frontend method that displays brand logo image
      * @return string
      */
-    static function displayBrandLogo($product_id) {
+    static function displayBrandLogo($id, $type) {
 
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brlgs'));
@@ -22,29 +22,47 @@ class shopBrlgsPlugin extends shopPlugin {
             $brand_feature = $feature_model->getById($settings['feature_id']);
 
             if ($brand_feature) {
+                $brands = array();
+                $brlgs_model = new shopBrlgsPluginBrlgsModel();
                 $feature_value_model = $feature_model->getValuesModel($brand_feature['type']);
-                $product_brands = $feature_value_model->getProductValues($product_id, $brand_feature['id']);                  
 
-                if ($product_brands) {
-                    $brands = array();
-                    $brlgs_model = new shopBrlgsPluginBrlgsModel();
+                switch ($type) {
+                    case 'by_product':
+                        $product_brands = $feature_value_model->getProductValues($id, $brand_feature['id']);                  
 
-                    foreach ($product_brands as $value) {
-                        $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $value);
+                        if ($product_brands) {
+                            foreach ($product_brands as $value) {
+                                $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $value);
+                                $brand         = $brlgs_model->getByField('brand_id', $brand_id);
+                                $brand['id']   = $brand_id;
+                                $brand['name'] = $value;
+                                                
+                                $brands[$brand_id] = $brand;
+                            }
+                        }
+
+                        break;
+                    case 'by_brand_value':
+                        $brand_id      = $feature_value_model->getValueId($brand_feature['id'], $id);
                         $brand         = $brlgs_model->getByField('brand_id', $brand_id);
                         $brand['id']   = $brand_id;
-                        $brand['name'] = $value;
-               		              		
+                        $brand['name'] = $id;
+                                        
                         $brands[$brand_id] = $brand;
-                    }
-
-                    $view = wa()->getView(); 
-                    $view->assign('brands', $brands);
-
-                    $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
-
-                    return $html;
+                        break;
+                    
+                    default:
+                        # code...
+                        break;
                 }
+                
+
+                $view = wa()->getView(); 
+                $view->assign('brands', $brands);
+
+                $html = $view->fetch(realpath(dirname(__FILE__)."/../").'/templates/Frontend.html');
+
+                return $html;
             }
         }
 
