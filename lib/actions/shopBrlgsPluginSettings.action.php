@@ -9,6 +9,23 @@ class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
     public function execute() {
         $_GET['id'] = 'brlgs';
 
+        $model = new waModel();
+
+        try {
+
+            $model->query('SELECT * FROM shop_brlgs_logo WHERE 0');
+
+        } catch (waDbException $e) {
+
+            $file_db = realpath(dirname(__FILE__)).'/../config/db.php';
+
+            if (file_exists($file_db)) {
+                $schema = include($file_db);
+                $model->createSchema($schema);
+            }
+
+        }
+
         $app_settings_model = new waAppSettingsModel();
         $feature_model      = new shopFeatureModel();
         $brand_logos_model  = new shopBrlgsPluginBrlgsModel();
