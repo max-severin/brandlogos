@@ -4,11 +4,9 @@
  * Class shopBrlgsPluginSettingsAction
  * @author Max Severin <makc.severin@gmail.com>
  */
-class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
+class shopBrlgsPluginSettingsAction extends waViewAction {
 
     public function execute() {
-        $_GET['id'] = 'brlgs';
-
         $model = new waModel();
 
         try {
@@ -26,13 +24,24 @@ class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
 
         }
 
-        $app_settings_model = new waAppSettingsModel();
+        $plugin = wa('shop')->getPlugin('brlgs');
+        $namespace = 'shop_brlgs';
+
+        $params = array();
+        $params['id'] = 'brlgs';
+        $params['namespace'] = $namespace;
+        $params['title_wrapper'] = '%s';
+        $params['description_wrapper'] = '<br><span class="hint">%s</span>';
+        $params['control_wrapper'] = '<div class="name">%s</div><div class="value">%s %s</div>';
+
+        $settings = $plugin->getSettings();
+        $settings_controls = $plugin->getControls($params);
+
         $feature_model      = new shopFeatureModel();
         $brand_logos_model  = new shopBrlgsPluginBrlgsModel();
 
         $brands = array();
 
-        $settings   = $app_settings_model->get(array('shop', 'brlgs'));
         if ( isset($settings['feature_id']) && $settings['feature_id'] ) {
             $feature_id = $settings['feature_id'];
 
@@ -51,6 +60,7 @@ class shopBrlgsPluginSettingsAction extends shopPluginsSettingsAction {
 
         $this->view->assign('brands', $brands);
         $this->view->assign('settings', $settings);
+        $this->view->assign('settings_controls', $settings_controls);
 
         parent::execute();
     }

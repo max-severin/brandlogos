@@ -10,5 +10,6 @@ return array(
     'vendor' => 1020720,
     'version' => '1.0.0',
     'shop_settings' => true,
+    'custom_settings' => true,
     'handlers'    => array(),
 );
