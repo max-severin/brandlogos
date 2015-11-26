@@ -61,8 +61,6 @@ class shopBrlgsPluginSettingsAction extends waViewAction {
         $this->view->assign('brands', $brands);
         $this->view->assign('settings', $settings);
         $this->view->assign('settings_controls', $settings_controls);
-
-        parent::execute();
     }
 
 }
