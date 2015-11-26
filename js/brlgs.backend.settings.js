@@ -8,7 +8,7 @@
 var brlgsBackendSettings = (function () { "use strict";
     //---------------- BEGIN MODULE SCOPE VARIABLES ---------------
     var
-        onFormSubmit, initModule;
+        onFormSubmit, checkBrands, initModule;
     //----------------- END MODULE SCOPE VARIABLES ----------------
 
     //------------------- BEGIN EVENT HANDLERS --------------------
@@ -31,9 +31,11 @@ var brlgsBackendSettings = (function () { "use strict";
                 });
 
                 if( st === 'on' ) {
-                    $('#save-brlgs-form').closest('.settings-wrapper').show();
+                    $('#save-brlgs-form').closest('#brands-wrapper').show();
+
+                    checkBrands();
                 } else {
-                    $('#save-brlgs-form').closest('.settings-wrapper').hide();
+                    $('#save-brlgs-form').closest('#brands-wrapper').hide();
                 }
             } else {
                 $.plugins.message('error', response.errors || []);
@@ -44,6 +46,18 @@ var brlgsBackendSettings = (function () { "use strict";
                 $("#plugins-settings-form-status").fadeIn('slow');
             }
         }, 'json');
+    };
+
+    checkBrands = function () {
+
+        $('#brands-wrapper').empty().addClass('loading');
+
+        $.get('?plugin=brlgs&action=getbrands', function (response) {
+            if (response.status == 'ok' && response.data !== false) {
+                $('#brands-wrapper').removeClass('loading').replaceWith( response.data );
+            }
+        }, 'json');
+
     };
     //------------------- END EVENT HANDLERS ----------------------
 

@@ -1,0 +1,47 @@
+<div id="brands-wrapper" {if !isset($settings.status) || $settings.status !== 'on'}style="display: none;"{/if}>
+    {if $brands}
+        <div class="fields form">
+            <form action="?plugin=brlgs&action=savelogos" method="post" id="save-brlgs-form" enctype="multipart/form-data">
+                {$wa->csrf()}
+
+                <div class="field">
+                    <div class="name">
+                        <b>[`Brands`]</b>
+                        <p class="hint">[`Add logos to brands`]</p>
+                    </div>
+                    <div class="value">
+                        <ul class="menu-v brands">
+                            {foreach $brands as $id => $brand}
+                            <li>
+                                <input type="hidden" name="id[]" value="{$brand.id}"/>
+
+                                {if $brand.logo}
+                                <div class="image-wrapper">
+                                    <img src="{$wa_static_url}wa-data/public/shop/brlgs/{$brand.logo}" alt="[`Logo`] {$brand.name}" title="[`Logo`] {$brand.name}" />
+                                </div>
+                                {/if}
+
+                                <span class="b-name">{$brand.name}</span>
+                                <input type="file" name="logo[{$brand.id}]" value=""/>
+                            </li>
+                            {/foreach}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="field res">
+                    <div class="value submit">
+                        <input type="submit" class="button green" value="[`Save`]">
+                        <span id="plugins-settings-form-status" style="display:none">
+                            <i style="vertical-align:middle" class="icon16 yes"></i> [`Saved`]
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {else}
+        <div class="block double-padded align-center gray">
+            <strong>[`Brands are missing.`]</strong>
+        </div>
+    {/if}
+</div>

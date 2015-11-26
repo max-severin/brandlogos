@@ -1,9 +1,10 @@
-.settings-wrapper { border-bottom: 1px dotted #DDD; float: left; padding: 0 0 50px; width: 100%; }
-.settings-wrapper .form { width: 100%; }
-.settings-wrapper .brands li { border-bottom: 1px dotted #ddd; float: left; margin: 0!important; padding: 0!important; width: 100%; }
-.settings-wrapper .brands li:nth-child(2n) { background: #FBFBFB; }
-.settings-wrapper .brands li:last-child { border-bottom: 0 none; }
-.settings-wrapper .brands li .image-wrapper { float: right; min-width: 128px; text-align: center; width: 10%; }
-.settings-wrapper .brands li .image-wrapper img { height: 56px; margin: 4px 0; }
-.settings-wrapper .brands li .b-name { display: block; float: left; font-size: 16px; font-weight: bold; height: 64px; line-height: 64px; margin: 0 30px 0 0; padding: 0; width: 15%; }    
-.settings-wrapper .brands li input { margin: 20px 0; }
+#brands-wrapper { border-bottom: 1px dotted #DDD; float: left; padding: 0 0 50px; width: 100%; }
+#brands-wrapper.loading { background: url("/wa-apps/shop/plugins/brlgs/img/loading-blue.gif") no-repeat scroll center #fff; height: 150px; }
+#brands-wrapper .form { width: 100%; }
+#brands-wrapper .brands li { border-bottom: 1px dotted #ddd; float: left; margin: 0!important; padding: 0!important; width: 100%; }
+#brands-wrapper .brands li:nth-child(2n) { background: #FBFBFB; }
+#brands-wrapper .brands li:last-child { border-bottom: 0 none; }
+#brands-wrapper .brands li .image-wrapper { float: right; min-width: 128px; text-align: center; width: 10%; }
+#brands-wrapper .brands li .image-wrapper img { height: 56px; margin: 4px 0; }
+#brands-wrapper .brands li .b-name { display: block; float: left; font-size: 16px; font-weight: bold; height: 64px; line-height: 64px; margin: 0 30px 0 0; padding: 0; width: 15%; }    
+#brands-wrapper .brands li input { margin: 20px 0; }
