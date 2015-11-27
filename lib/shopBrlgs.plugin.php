@@ -12,7 +12,7 @@ class shopBrlgsPlugin extends shopPlugin {
      * Frontend method that displays brand logo image
      * @return string
      */
-    static function displayBrandLogo($id, $type) {
+    static function displayBrandLogo($id, $type = 'by_product') {
 
         $app_settings_model = new waAppSettingsModel();
         $settings = $app_settings_model->get(array('shop', 'brlgs'));
