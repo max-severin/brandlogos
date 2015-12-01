@@ -1,4 +1,6 @@
-# brlgs
+# brlgs - Brand logos
+
+![brlgs-settings](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/4858.970.png)
 
 ## Description
 Brand logos plugin for Shop-Script 6
