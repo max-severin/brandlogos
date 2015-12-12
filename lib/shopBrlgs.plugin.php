@@ -68,6 +68,54 @@ class shopBrlgsPlugin extends shopPlugin {
 
         return;
     }
+    
+    /**
+     * Frontend method that gets brand logo images
+     * @return string
+     */
+    static function getBrandLogo($products) {
+
+        $app_settings_model = new waAppSettingsModel();
+        $settings = $app_settings_model->get(array('shop', 'brlgs'));
+
+        if (isset($settings['status']) && $settings['status'] === 'on' && isset($settings['feature_id']) && $settings['feature_id']) {
+            $feature_model = new shopFeatureModel();
+            $brand_feature = $feature_model->getById($settings['feature_id']);
+
+            if ($brand_feature) {
+                $product_list_brands = array();
+                $brlgs_model = new shopBrlgsPluginBrlgsModel();
+                $feature_value_model = $feature_model->getValuesModel($brand_feature['type']);
+
+                        
+                $brand_ids = array();
+
+                foreach ($products as $product) {
+                    $product_brands = $feature_value_model->getProductValues($product['id'], $brand_feature['id']);                  
+
+                    if ($product_brands) {
+                        $brands = array();
+
+                        foreach ($product_brands as $value) {
+                            $brand_id = $feature_value_model->getValueId($brand_feature['id'], $value);
+                            $brand    = array( 'id' => $brand_id, 'name' => $value );
+                                            
+                            $brands[$brand_id] = $brand;
+                            $brand_ids[] = $brand_id;
+                        }
+
+                        $product_list_brands[$product['id']] = $brands;
+                    }
+                }
+
+                $product_list_brands = $brlgs_model->getProductListBrands($product_list_brands, $brand_ids);
+
+                return $product_list_brands;
+            }
+        }
+
+        return;
+    }
 
     /**
      * Generates the HTML code for the user control with ID settingNumberControl for number parametrs

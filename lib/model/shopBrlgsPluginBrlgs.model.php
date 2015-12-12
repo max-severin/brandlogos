@@ -68,4 +68,37 @@ class shopBrlgsPluginBrlgsModel extends waModel {
         return $name;
     }
 
+    public function getProductListBrands($product_list_brands, $brand_ids) {
+        $new_product_list_brands = array();
+        $brand_ids_str = '';
+
+        foreach ($brand_ids as $id) {
+            if ( empty($brand_ids_str) ) {
+                $brand_ids_str .= $id;
+            } else {
+                $brand_ids_str .= ', ' . $id;
+            }
+            
+        }
+
+        $sql  = "SELECT * FROM `{$this->table}` WHERE `brand_id` IN (" . $brand_ids_str . ")";
+
+        $brand_logos = $this->query($sql)->fetchAll('brand_id');
+
+        foreach ($product_list_brands as $id => $brands) {
+            foreach ($brands as &$brand) {
+                if ($brand_logos[$brand['id']]){
+                    $brand['logo'] = $brand_logos[$brand['id']]['logo'];                    
+                }                
+            }
+
+            $view = wa()->getView(); 
+            $view->assign('brands', $brands);
+
+            $new_product_list_brands[$id] = $view->fetch(realpath(dirname(__FILE__)."/../../").'/templates/Frontend.html');
+        }
+
+        return $new_product_list_brands;
+    }
+
 }
