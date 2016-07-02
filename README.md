@@ -45,7 +45,7 @@ You need to edit the template that generates the product lists. In the basic the
 
 Then inside the **foreach** add the next:
 
-		<div class="corner top left">{$product_brand_logos[**$p.id**]}</div>
+		<div class="corner top left">{$product_brand_logos[$p.id]}</div>
 
 ![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6874.970.png)
 
