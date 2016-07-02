@@ -25,13 +25,6 @@ Shop administrators can to add logo file to each brand feature and then to displ
 To output the brand logo in shop frontend paste in the product template the following code:  
 **{shopBrlgsPlugin::displayBrandLogo($product.id)}** - as a method parameter it is necessary to specify the product id.
 
-### The showing of the brand image in the categories, lists:
-You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template:
-
-		<div class="corner top left">{shopBrlgsPlugin::displayBrandLogo($p.id)}</div>
-
-![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/5440.970.png)
-
 ### The showing of the brand image in the product page:
 Add a call to the plugin in the right place in the **product.html** file as shown below:
 
@@ -39,6 +32,21 @@ Add a call to the plugin in the right place in the **product.html** file as show
 			{shopBrlgsPlugin::displayBrandLogo($product.id)}  
 		</div>
 
-![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/5441.970.png)
+![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6873.970.png)
+
+### The showing of the brand image in the categories, lists:
+You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template. Add the next code:
+
+		{$product_brand_logos = shopBrlgsPlugin::getBrandLogos($products)}
+
+**Warning**: This code should be added **above** the code with **foreach** loop:
+
+		{foreach $products as $p}
+
+Then inside the **foreach** add the next:
+
+		<div class="corner top left">{$product_brand_logos[**$p.id**]}</div>
+
+![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6874.970.png)
 
 *The pictures show the principle and the approximate location of the calling plugin can be added to template files of basic design theme Custom. In other themes the plugin is installed the same way.*
