@@ -23,13 +23,13 @@ Shop administrators can to add logo file to each brand feature and then to displ
 
 ## Specificity
 To output the brand logo in shop frontend paste in the product template the following code:  
-**{shopBrlgsPlugin::displayBrandLogo($product.id)}** - as a method parameter it is necessary to specify the product id.
+**{shopBrlgsPlugin::displayProductBrandLogo($product.id)}** - as a method parameter it is necessary to specify the product id.
 
 ### The showing of the brand image in the product page:
 Add a call to the plugin in the right place in the **product.html** file as shown below:
 
 		<div class="corner top left">  
-			{shopBrlgsPlugin::displayBrandLogo($product.id)}  
+			{shopBrlgsPlugin::displayProductBrandLogo($product.id)}  
 		</div>
 
 ![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6873.970.png)
@@ -37,7 +37,7 @@ Add a call to the plugin in the right place in the **product.html** file as show
 ### The showing of the brand image in the categories, lists:
 You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template. Add the next code:
 
-		{$product_brand_logos = shopBrlgsPlugin::getBrandLogos($products)}
+		{$product_brand_logos = shopBrlgsPlugin::displayProductListBrandLogos($products)}
 
 **Warning**: This code should be added **above** the code with **foreach** loop:
 

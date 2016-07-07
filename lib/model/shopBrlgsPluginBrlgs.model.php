@@ -86,15 +86,15 @@ class shopBrlgsPluginBrlgsModel extends waModel {
 
             $brand_logos = $this->query($sql)->fetchAll('brand_id');
 
-            foreach ($product_list_brands as $id => $brands) {
-                foreach ($brands as &$brand) {
-                    if ($brand_logos[$brand['id']]){
-                        $brand['logo'] = $brand_logos[$brand['id']]['logo'];                    
-                    }                
-                }
+            foreach ($product_list_brands as $id => &$brand) {
+                $brand['name'] = $brand['value'];
+
+                if ($brand_logos[$brand['id']]){
+                    $brand['logo'] = $brand_logos[$brand['id']]['logo'];                    
+                }                
 
                 $view = wa()->getView(); 
-                $view->assign('brands', $brands);
+                $view->assign('brand', $brand);
 
                 $new_product_list_brands[$id] = $view->fetch(realpath(dirname(__FILE__)."/../../").'/templates/Frontend.html');
             }

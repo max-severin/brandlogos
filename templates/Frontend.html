@@ -1,5 +1,3 @@
-{if isset($brands) && $brands}
-	{foreach $brands as $id => $brand}
-		<img class="brand-logo" src="{$wa_static_url}wa-data/public/shop/brlgs/{$brand.logo}" alt="{$brand.name}" title="{$brand.name}" />
-	{/foreach}
+{if isset($brand) && $brand && isset($brand.logo) && $brand.logo}
+	<img class="brand-logo" src="{$wa_static_url}wa-data/public/shop/brlgs/{$brand.logo}" alt="{$brand.name}" title="{$brand.name}" />
 {/if}
