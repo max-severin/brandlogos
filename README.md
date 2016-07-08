@@ -51,4 +51,4 @@ Then inside the **foreach** add the next:
 
 ![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6874.970.png)
 
-*The pictures show the principle and the approximate location of the calling plugin can be added to template files of basic design theme Custom. In other themes the plugin is installed the same way.*
+*The pictures show the principle and the approximate location of the calling plugin can be added to template files of basic design theme **Custom**. In other themes the plugin is installed the same way.*
