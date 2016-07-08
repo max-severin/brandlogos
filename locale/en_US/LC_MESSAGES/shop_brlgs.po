@@ -8,9 +8,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: en_US\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
@@ -78,3 +78,23 @@ msgstr ""
 msgid "Select the feature you want to add logo"
 msgstr ""
 
+#: /wa-apps/shop/plugins/brlgs/templates/BackendBrands.html:44
+msgid "Brands are missing."
+msgstr ""
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
+msgid "//www.webasyst.com"
+msgstr ""
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
+msgid "Give <b>feedback</b>"
+msgstr ""
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
+msgid "Other <b>plugins</b><br /> from the developer"
+msgstr ""
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:15
+msgid "For all questions"
+msgstr ""

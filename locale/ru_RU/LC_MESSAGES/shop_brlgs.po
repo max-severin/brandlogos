@@ -8,10 +8,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
-"X-Poedit-Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=((((n%10)==1)&&((n%100)!=11))?(0):(((((n"
+"%10)>=2)&&((n%10)<=4))&&(((n%100)<10)||((n%100)>=20)))?(1):2));\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Basepath: .\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: .\n"
 
@@ -79,3 +80,23 @@ msgstr "Характеристика"
 msgid "Select the feature you want to add logo"
 msgstr "Выберите характеристику, к значениям которой хотите добавить логотипы"
 
+#: /wa-apps/shop/plugins/brlgs/templates/BackendBrands.html:44
+msgid "Brands are missing."
+msgstr "Бренды отсутствуют."
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
+msgid "//www.webasyst.com"
+msgstr "//www.webasyst.ru"
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
+msgid "Give <b>feedback</b>"
+msgstr "Оставить <b>отзыв</b>"
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
+msgid "Other <b>plugins</b><br /> from the developer"
+msgstr "Другие <b>плагины</b><br /> от разработчика"
+
+#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:15
+msgid "For all questions"
+msgstr "По всем вопросам"
