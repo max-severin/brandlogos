@@ -22,7 +22,8 @@ Shop administrators can to add logo file to each brand feature and then to displ
 3. Done. Configure the plugin in the plugins tab of shop backend.
 
 ## Specificity
-Enable the plugin in settings, select the feature which you want to add logos and upload images for each value of the feature.  
+Enable the plugin in settings, select the feature which you want to add logos and upload images for each value of the feature.
+
 To output the brand logo in shop frontend paste in the product template the following code:  
 **{shopBrlgsPlugin::displayProductBrandLogo($product.id)}** - as a method parameter it is necessary to specify the product id.
 
