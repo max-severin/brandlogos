@@ -75,9 +75,9 @@ class shopBrlgsPluginBrlgsModel extends waModel {
         if ($product_list_brands) {
             foreach ($brand_ids as $id) {
                 if ( empty($brand_ids_str) ) {
-                    $brand_ids_str .= $id;
+                    $brand_ids_str .= (int)$id;
                 } else {
-                    $brand_ids_str .= ', ' . $id;
+                    $brand_ids_str .= ', ' . (int)$id;
                 }
                 
             }
