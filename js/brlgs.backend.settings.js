@@ -65,43 +65,17 @@ var brlgsBackendSettings = (function () { "use strict";
     initModule = function () {
         $('#plugins-settings-form').on('submit', onFormSubmit);
 
-        $('.plugin-links a#plugin-review').css({
+        $('.plugin-links a').css({
             'display': 'block',
-            'top': '-2000px'
+            'right': '-500px'
         }).animate({
-            'top': '0'
-        }, 1500).animate({
-            'top': '-25px'
-        }, 100).animate({
-            'top': '-35px'
-        }, 100).animate({
-            'top': '0'
-        }, 250);
-
-        $('.plugin-links a#more-plugins').css({
-            'display': 'block',
-            'top': '-1000px'
-        }).animate({
-            'top': '0'
-        }, 1000).animate({
-            'top': '-25px'
-        }, 100).animate({
-            'top': '-35px'
-        }, 100).animate({
-            'top': '0'
-        }, 250);
-
-        $('.plugin-links a#plugin-support').css({
-            'display': 'block',
-            'top': '-500px'
-        }).animate({
-            'top': '0'
+            'right': '0'
         }, 500).animate({
-            'top': '-25px'
+            'right': '-25px'
         }, 100).animate({
-            'top': '-35px'
+            'right': '-35px'
         }, 100).animate({
-            'top': '0'
+            'right': '0'
         }, 250);
     };
 
