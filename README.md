@@ -39,7 +39,7 @@ Add a call to the plugin in the right place in the **product.html** file as show
 ### The showing of the brand image in the categories, lists:
 You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template. Add the next code:
 
-		{$product_brand_logos = shopBrlgsPlugin::displayProductListBrandLogos($products)}
+		{$brlgs_logo = shopBrlgsPlugin::displayProductListBrandLogos($products)}
 
 **Warning**: This code should be added **above** the code with **foreach** loop:
 
@@ -47,8 +47,8 @@ You need to edit the template that generates the product lists. In the basic the
 
 Then inside the **foreach** add the next:
 
-		<div class="corner top left">{$product_brand_logos[$p.id]}</div>
+		{if isset($brlgs_logo[$p.id]) && $brlgs_logo[$p.id]}<div class="corner top left">{$brlgs_logo[$p.id]}</div>{/if}
 
-![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6874.970.png)
+![brlgs-list-thumbs](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6927.970.png)
 
 *The pictures show the principle and the approximate location of the calling plugin can be added to template files of basic design theme Custom. In other themes the plugin is installed the same way.*
