@@ -72,31 +72,34 @@ class shopBrlgsPluginBrlgsModel extends waModel {
         $new_product_list_brands = array();
         $brand_ids_str = '';
 
-        if ($product_list_brands) {
+        if ($product_list_brands && $brand_ids) {
             foreach ($brand_ids as $id) {
-                if ( empty($brand_ids_str) ) {
-                    $brand_ids_str .= (int)$id;
-                } else {
-                    $brand_ids_str .= ', ' . (int)$id;
+                if ((int)$id > 0) {
+                    if ( empty($brand_ids_str) ) {
+                        $brand_ids_str .= (int)$id;
+                    } else {
+                        $brand_ids_str .= ', ' . (int)$id;
+                    }
                 }
-                
             }
 
-            $sql  = "SELECT * FROM `{$this->table}` WHERE `brand_id` IN (" . $brand_ids_str . ")";
+            if ($brand_ids_str) {
+                $sql  = "SELECT * FROM `{$this->table}` WHERE `brand_id` IN (" . $brand_ids_str . ")";
 
-            $brand_logos = $this->query($sql)->fetchAll('brand_id');
+                $brand_logos = $this->query($sql)->fetchAll('brand_id');
 
-            foreach ($product_list_brands as $id => &$brand) {
-                $brand['name'] = $brand['value'];
+                foreach ($product_list_brands as $id => &$brand) {
+                    $brand['name'] = $brand['value'];
 
-                if ($brand_logos[$brand['id']]){
-                    $brand['logo'] = $brand_logos[$brand['id']]['logo'];                    
-                }                
+                    if ($brand_logos[$brand['id']]){
+                        $brand['logo'] = $brand_logos[$brand['id']]['logo'];                    
+                    }                
 
-                $view = wa()->getView(); 
-                $view->assign('brand', $brand);
+                    $view = wa()->getView(); 
+                    $view->assign('brand', $brand);
 
-                $new_product_list_brands[$id] = $view->fetch(realpath(dirname(__FILE__)."/../../").'/templates/Frontend.html');
+                    $new_product_list_brands[$id] = $view->fetch(realpath(dirname(__FILE__)."/../../").'/templates/Frontend.html');
+                }
             }
         }
 
