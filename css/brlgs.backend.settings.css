@@ -1,5 +1,5 @@
 #brands-wrapper { border-bottom: 1px dotted #DDD; float: left; padding: 0 0 50px; width: 100%; }
-#brands-wrapper.loading { background: url("/wa-apps/shop/plugins/brlgs/img/loading-blue.gif") no-repeat scroll center #fff; height: 150px; }
+#brands-wrapper.loading { background: url("{$wa_static_url}/wa-apps/shop/plugins/brlgs/img/loading-blue.gif") no-repeat scroll center #fff; height: 150px; }
 #brands-wrapper .form { width: 100%; }
 #brands-wrapper .brands li { border-bottom: 1px dotted #ddd; float: left; margin: 0!important; padding: 0!important; width: 100%; }
 #brands-wrapper .brands li:nth-child(2n) { background: #FBFBFB; }
