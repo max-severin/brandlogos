@@ -94,8 +94,8 @@ msgid "Give <b>feedback</b>"
 msgstr "Оставить <b>отзыв</b>"
 
 #: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
-msgid "Other <b>plugins</b><br /> from the developer"
-msgstr "Другие <b>плагины</b><br /> от разработчика"
+msgid "Other <b>products</b><br /> from the developer"
+msgstr "Другие <b>продукты</b><br /> от разработчика"
 
 #: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:15
 msgid "For all questions"

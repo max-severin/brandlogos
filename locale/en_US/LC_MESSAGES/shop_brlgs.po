@@ -92,7 +92,7 @@ msgid "Give <b>feedback</b>"
 msgstr ""
 
 #: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
-msgid "Other <b>plugins</b><br /> from the developer"
+msgid "Other <b>products</b><br /> from the developer"
 msgstr ""
 
 #: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:15
