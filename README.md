@@ -35,7 +35,7 @@ Add a call to the plugin in the right place in the **product.html** file as show
 			{shopBrlgsPlugin::displayProductBrandLogo($product.id)}  
 		</div>
 
-![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/4858.970.png)
+![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6906.970.png)
 
 ### The showing of the brand image in the categories, lists:
 You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template. Add the next code:
