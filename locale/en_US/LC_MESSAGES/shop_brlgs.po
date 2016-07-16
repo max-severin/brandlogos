@@ -82,19 +82,6 @@ msgstr ""
 msgid "Brands are missing."
 msgstr ""
 
-#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
-#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
-msgid "//www.webasyst.com"
-msgstr ""
-
-#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:13
-msgid "Give <b>feedback</b>"
-msgstr ""
-
-#: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:14
-msgid "Other <b>products</b><br /> from the developer"
-msgstr ""
-
 #: /wa-apps/shop/plugins/brlgs/templates/actions/settings/Settings.html:15
 msgid "For all questions"
 msgstr ""

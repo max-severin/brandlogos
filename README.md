@@ -3,14 +3,15 @@
 ![brlgs-settings](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/4858.970.png)
 
 ## Description
-Brand logos plugin for Shop-Script 6
+Brand logos plugin for Shop-Script
 
 ## Features
 Shop administrators can to add logo file to each brand feature and then to display these images in frontend.
 
 ## Installing
 ### Auto
-...
+Install plugin from webasyst store: [brlgs-en](https://www.webasyst.com/store/plugin/shop/brlgs/) or [brlgs-ru](https://www.webasyst.ru/store/plugin/shop/brlgs/).  
+Or you can install plugin from Installer app in backend.
 
 ### Manual
 1. Get the code into your web server's folder /PATH_TO_WEBASYST/wa-apps/shop/plugins
@@ -34,7 +35,7 @@ Add a call to the plugin in the right place in the **product.html** file as show
 			{shopBrlgsPlugin::displayProductBrandLogo($product.id)}  
 		</div>
 
-![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/6873.970.png)
+![brlgs-product](https://www.webasyst.com/wa-data/public/baza/products/img/21/1721/4858.970.png)
 
 ### The showing of the brand image in the categories, lists:
 You need to edit the template that generates the product lists. In the basic themes of Shop-Script is used for this **list-thumbs.html** template. Add the next code:
