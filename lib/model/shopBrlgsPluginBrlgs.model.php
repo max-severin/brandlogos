@@ -49,17 +49,14 @@ class shopBrlgsPluginBrlgsModel extends waModel {
 
         $rand = mt_rand();
         $name = "$rand.original.png";
-        $filename = wa()->getDataPath("brlgs/{$name}", TRUE, 'shop'); 
-
-        waFiles::move($file, $filename);   
+        $filename = wa()->getDataPath("brlgs/{$name}", TRUE, 'shop');
 
         try {
-            $img = waImage::factory($filename);
+            $img = waImage::factory($file)->resize($height, $width, waImage::AUTO)->save($filename, 90);
         } catch(Exception $e) {
             $errors = 'File is not an image ('.$e->getMessage().').';
             return;
         }
-        $img->resize($height, $width, waImage::AUTO)->save($filename, 90);
 
         if ($old_file) {
             waFiles::delete(wa()->getDataPath("brlgs/{$old_file}", TRUE, 'shop'));
